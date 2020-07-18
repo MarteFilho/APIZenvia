@@ -8,12 +8,11 @@ namespace API.Models
     public class Order
     {
         public int Id { get; set; }
-
-        public int ProductCatalogId { get; set; }
-        public List<ProductCatalog> ProductCatalog { get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
-        public double Quantity { get; set; }
-        public double Price { get; set; }
+        public List<OrderItem> OrderItem { get; set; }
+        public int StoreId { get; set; }
+        public Store Store { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+        public double Total { get; set; }
     }
 }

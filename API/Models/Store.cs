@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
-    public class User
+    public class Store
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -18,8 +18,6 @@ namespace API.Models
         public string Document { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public int ProductCatalogId { get; set; }
-        public List<ProductCatalog> ProductCatalog { get; set; }
 
     }
 }
