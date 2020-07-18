@@ -23,7 +23,7 @@ namespace API.Controllers
         [Route("")]
         public async Task<ActionResult<List<Category>>> Get()
         {
-            var Categories = await _context.Store.AsNoTracking().ToListAsync();
+            var Categories = await _context.Category.AsNoTracking().ToListAsync();
             if (Categories == null)
             {
                 return NotFound(new { erro = "Nenhuma categoria encontrada encontrado!" });
