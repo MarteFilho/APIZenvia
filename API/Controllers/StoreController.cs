@@ -1,9 +1,11 @@
 ﻿using API.Context;
 using API.Models;
+using API.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -61,6 +63,38 @@ namespace API.Controllers
                 store = model,
                 mesangem = "Loja cadastrada com sucesso!"
             };
+        }
+
+
+        //Autenticação
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult<dynamic>> Login([FromBody]StoreLoginModel model)
+        {
+            try
+            {
+                var store = await _context.Store
+                    .AsNoTracking()
+                    .Where(x => x.Email == model.Email && x.Password == model.Password)
+                    .FirstOrDefaultAsync();
+
+                if (store == null)
+                    return NotFound(new { Erro = "Usuário ou senha inválidos!" });
+
+
+                return new
+                {
+                    store = store,
+                };
+
+            }
+            catch
+            {
+                return BadRequest(new { Erro = "Não foi possível se conectar com o banco de dados para a criação do usuário!" });
+            }
+
+
+
         }
 
 
