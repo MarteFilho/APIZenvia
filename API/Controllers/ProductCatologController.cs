@@ -15,7 +15,7 @@ namespace API.Controllers
 
 
             private readonly DataContext _context;
-            public ProductCatalogController(DataContext context)
+            public ProductCatologController(DataContext context)
             {
                 _context = context;
             }
