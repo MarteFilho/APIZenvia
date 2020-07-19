@@ -14,12 +14,8 @@ namespace API.Controllers
     {
 
 
-        public class StoreController : ControllerBase
-        {
-
-
             private readonly DataContext _context;
-            public StoreController(DataContext context)
+            public ProductCatalogController(DataContext context)
             {
                 _context = context;
             }
@@ -29,7 +25,7 @@ namespace API.Controllers
             [Route("")]
             public async Task<ActionResult<List<ProductCatalog>>> Get()
             {
-                var Products = await _context.Store.AsNoTracking().ToListAsync();
+                var Products = await _context.ProductCatalog.AsNoTracking().ToListAsync();
                 if (Products == null)
                 {
                     return NotFound(new { erro = "Nenhum produto encontrado encontrado!" });
@@ -66,8 +62,6 @@ namespace API.Controllers
                     mesangem = "Produto cadastrado com sucesso!"
                 };
             }
-
-        }
 
         }
     }
