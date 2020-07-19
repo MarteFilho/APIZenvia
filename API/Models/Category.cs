@@ -8,5 +8,8 @@ namespace API.Models
         public string Name { get; set; }
         public int ProductCatalogId { get; set; }
         public List<ProductCatalog> ProductCatalog { get; set; }
+
+        public int StoreId { get; set; }
+
     }
 }
